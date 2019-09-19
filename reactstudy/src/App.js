@@ -1,7 +1,12 @@
 import React from 'react';
 import './App.css';
-import Customer from './components/Customer'
-import CustomerP from './components/Customer'
+import Customer from './components/Customer';
+import Table from '@material-ui/core/Table';
+import TableHead from '@material-ui/core/TableHead';
+import TableBody from '@material-ui/core/TableBody';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+import Button from '@material-ui/core/Button';
 const customer=[
   {'id':1,
   'image':'https://placeimg.com/64/64/any/1',
@@ -20,8 +25,25 @@ class App extends React.Component{
   render(){
     return(
     <div>
-      {
-       
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>
+              번호
+            </TableCell>
+            <TableCell>
+              이름
+            </TableCell>
+            <TableCell>
+              나이
+            </TableCell>
+            <TableCell>
+              이미지
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+        {
        customer.map(c=>{
         return(
           <Customer
@@ -33,9 +55,12 @@ class App extends React.Component{
           />
         );
       })
-
-
       }
+        </TableBody>
+      </Table>
+      <Button variant="contained" color="primary">
+      Hello World
+    </Button>
     </div>
     )
   }
